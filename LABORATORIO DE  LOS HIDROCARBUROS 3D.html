@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LOS HIDROCARBUROS Y SU IMPORTANCIA - Laboratorio Virtual 3D</title>
+  <meta name="description" content="Laboratorio virtual interactivo de química orgánica sobre hidrocarburos, con visor 3D real, nomenclatura IUPAC, fórmulas desarrolladas, constructor de moléculas y evaluación automática.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==========================================
+       BARRA DE NAVEGACIÓN SUPERIOR
+       ========================================== -->
+  <header class="app-navbar">
+    <a href="#portada" class="nav-brand" data-navigate="portada">
+      <span class="brand-icon">⚛️</span>
+      <div class="brand-text-group">
+        <span class="brand-title">LOS HIDROCARBUROS Y SU IMPORTANCIA</span>
+        <span class="brand-badge">Laboratorio 3D</span>
+      </div>
+    </a>
+
+    <!-- Menú de navegación en escritorio -->
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#portada" class="nav-link active" data-navigate="portada" data-section="portada">Inicio</a></li>
+        <li><a href="#introduccion" class="nav-link" data-navigate="introduccion" data-section="introduccion">Introducción</a></li>
+        <li><a href="#visor3d" class="nav-link" data-navigate="visor3d" data-section="visor3d">Visor 3D y Fórmulas</a></li>
+        <li><a href="#constructor" class="nav-link" data-navigate="constructor" data-section="constructor">Constructor</a></li>
+        <li><a href="#nomenclatura" class="nav-link" data-navigate="nomenclatura" data-section="nomenclatura">Nomenclatura</a></li>
+        <li><a href="#propiedades" class="nav-link" data-navigate="propiedades" data-section="propiedades">Propiedades</a></li>
+        <li><a href="#petroleo" class="nav-link" data-navigate="petroleo" data-section="petroleo">Petróleo y Destilación</a></li>
+        <li><a href="#evaluacion" class="nav-link" data-navigate="evaluacion" data-section="evaluacion">Evaluación (100 pts)</a></li>
+      </ul>
+    </nav>
+
+    <!-- Botón hamburguesa móvil -->
+    <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Abrir menú">
+      ☰
+    </button>
+  </header>
+
+  <!-- Menú móvil desplegable -->
+  <div class="mobile-nav-drawer" id="mobile-nav-menu">
+    <a href="#portada" class="mobile-nav-link" data-navigate="portada" data-section="portada">🏠 Inicio</a>
+    <a href="#introduccion" class="mobile-nav-link" data-navigate="introduccion" data-section="introduccion">📘 Introducción y Tipos</a>
+    <a href="#visor3d" class="mobile-nav-link" data-navigate="visor3d" data-section="visor3d">🔬 Visor Molecular 3D y Fórmulas</a>
+    <a href="#constructor" class="mobile-nav-link" data-navigate="constructor" data-section="constructor">🛠️ Constructor de Moléculas</a>
+    <a href="#nomenclatura" class="mobile-nav-link" data-navigate="nomenclatura" data-section="nomenclatura">🏷️ Nomenclatura IUPAC</a>
+    <a href="#propiedades" class="mobile-nav-link" data-navigate="propiedades" data-section="propiedades">🌡️ Propiedades Físicas y Químicas</a>
+    <a href="#petroleo" class="mobile-nav-link" data-navigate="petroleo" data-section="petroleo">🛢️ Petróleo y Destilación</a>
+    <a href="#evaluacion" class="mobile-nav-link" data-navigate="evaluacion" data-section="evaluacion">📝 Evaluación Automática</a>
+  </div>
+
+  <!-- ==========================================
+       CONTENIDO PRINCIPAL DINÁMICO
+       ========================================== -->
+  <main class="app-main">
+
+    <!-- 1. PORTADA Y MENÚ PRINCIPAL -->
+    <section class="app-section active-section" id="section-portada">
+      <div class="hero-container">
+        <div class="hero-pill">
+          <span>✨ Laboratorio Virtual de Química Orgánica para Secundaria</span>
+        </div>
+        <h1 class="hero-title">LOS HIDROCARBUROS Y SU IMPORTANCIA</h1>
+        <p class="hero-subtitle">
+          Aprende química orgánica explorando moléculas en 3D: comprende la tetravalencia del carbono, compara fórmulas desarrolladas, domina la nomenclatura IUPAC y descubre la torre de destilación fraccionada del petróleo.
+        </p>
+
+        <!-- Botones de Acción Funcionales -->
+        <div class="hero-cta-buttons">
+          <button class="btn btn-primary btn-lg" data-navigate="introduccion">
+            🚀 INICIAR APRENDIZAJE
+          </button>
+          <button class="btn btn-secondary btn-lg" data-navigate="visor3d">
+            🔬 EXPLORAR MOLÉCULAS 3D
+          </button>
+          <button class="btn btn-secondary btn-lg" data-navigate="nomenclatura">
+            🏷️ NOMENCLATURA IUPAC
+          </button>
+          <button class="btn btn-secondary btn-lg" data-navigate="constructor">
+            🛠️ CONSTRUIR MOLÉCULAS
+          </button>
+          <button class="btn btn-outline btn-lg" data-navigate="evaluacion">
+            📝 REALIZAR EVALUACIÓN
+          </button>
+        </div>
+
+        <!-- Vitrina de Moléculas Destacadas en 3D -->
+        <h3 class="showcase-section-title">Moléculas Fundamentales de los Hidrocarburos</h3>
+        <p class="showcase-section-desc">Selecciona cualquiera de las estructuras para abrirla al instante en el visor molecular tridimensional:</p>
+
+        <div class="showcase-grid">
+          <div class="showcase-card" data-molecule="metano">
+            <div class="showcase-card-header">
+              <h4>Metano</h4>
+              <span class="formula-tag">CH₄</span>
+            </div>
+            <p>Alcano simple saturado. Geometría tetraédrica perfecta. Componente principal del gas natural.</p>
+            <div class="showcase-footer">
+              <span>Alcano (Enlaces simples)</span>
+              <span>Explorar en 3D &rarr;</span>
+            </div>
+          </div>
+
+          <div class="showcase-card" data-molecule="etano">
+            <div class="showcase-card-header">
+              <h4>Etano</h4>
+              <span class="formula-tag">C₂H₆</span>
+            </div>
+            <p>Alcano de 2 carbonos unidos por un enlace simple C–C y seis enlaces C–H.</p>
+            <div class="showcase-footer">
+              <span>Alcano (CH₃–CH₃)</span>
+              <span>Explorar en 3D &rarr;</span>
+            </div>
+          </div>
+
+          <div class="showcase-card" data-molecule="eteno">
+            <div class="showcase-card-header">
+              <h4>Eteno</h4>
+              <span class="formula-tag">C₂H₄</span>
+            </div>
+            <p>Alqueno con doble enlace C=C y geometría coplanar de 120°. Monómero del polietileno.</p>
+            <div class="showcase-footer">
+              <span>Alqueno (CH₂=CH₂)</span>
+              <span>Explorar en 3D &rarr;</span>
+            </div>
+          </div>
+
+          <div class="showcase-card" data-molecule="etino">
+            <div class="showcase-card-header">
+              <h4>Etino (Acetileno)</h4>
+              <span class="formula-tag">C₂H₂</span>
+            </div>
+            <p>Alquino con enlace triple C≡C y geometría 100% lineal de 180°. Utilizado en sopletes de soldadura.</p>
+            <div class="showcase-footer">
+              <span>Alquino (HC≡CH)</span>
+              <span>Explorar en 3D &rarr;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vista previa de Petróleo, Gas Natural y Derivados -->
+        <div class="petroleum-derivatives-preview">
+          <h4>🛢️ Petróleo, Gas Natural y Productos de la Vida Diaria</h4>
+          <p class="text-muted">Los hidrocarburos no solo son fórmulas químicas: son la base de la matriz energética y los materiales modernos.</p>
+          <div class="derivs-grid">
+            <div class="deriv-item">
+              <span class="deriv-icon">⛽</span>
+              <div>
+                <h6>Gasolina y Gasóleo</h6>
+                <p>Combustibles líquidos para transporte automotor, marítimo y terrestre.</p>
+              </div>
+            </div>
+            <div class="deriv-item">
+              <span class="deriv-icon">🔥</span>
+              <div>
+                <h6>Gas Natural y GLP</h6>
+                <p>Calefacción limpia domiciliaria, cocinas de gas y generación eléctrica.</p>
+              </div>
+            </div>
+            <div class="deriv-item">
+              <span class="deriv-icon">🛍️</span>
+              <div>
+                <h6>Plásticos y Polímeros</h6>
+                <p>Polietileno, polipropileno, envases estériles y materiales biomédicos.</p>
+              </div>
+            </div>
+            <div class="deriv-item">
+              <span class="deriv-icon">🛣️</span>
+              <div>
+                <h6>Asfalto y Carreteras</h6>
+                <p>Impermeabilización y pavimento de infraestructuras viales modernas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. INTRODUCCIÓN A LOS HIDROCARBUROS -->
+    <section class="app-section" id="section-introduccion">
+      <div class="intro-container">
+        <div class="section-hero-card">
+          <h2>¿Qué son los Hidrocarburos?</h2>
+          <p class="lead-text">
+            Los <strong>hidrocarburos</strong> son compuestos orgánicos binarios formados <em>exclusivamente por átomos de carbono e hidrógeno</em>. Constituyen el esqueleto fundamental de la química orgánica debido a la extraordinaria capacidad del carbono para concatenarse (formar cadenas estables simples, ramificadas o cíclicas) y compartir enlaces simples, dobles o triples gracias a su <strong>tetravalencia</strong> (4 enlaces covalentes).
+          </p>
+        </div>
+
+        <h3 class="section-subheading">Clasificación Principal de los Hidrocarburos</h3>
+
+        <div class="classification-grid">
+          <!-- Alcanos -->
+          <div class="class-card">
+            <div>
+              <div class="class-header">
+                <h3>Alcanos</h3>
+                <span class="class-formula-tag">CₙH₂ₙ₊₂</span>
+              </div>
+              <p>Hidrocarburos saturados donde todos los enlaces entre átomos de carbono son <strong>enlaces covalentes simples (C–C)</strong> con hibridación sp³ y geometría tetraédrica. Son poco reactivos a temperatura ambiente.</p>
+              <div class="class-examples">
+                <strong>Ejemplos típicos:</strong>
+                <div class="examples-pills">
+                  <span class="pill-sm">Metano (CH₄)</span>
+                  <span class="pill-sm">Etano (C₂H₆)</span>
+                  <span class="pill-sm">Propano (C₃H₈)</span>
+                  <span class="pill-sm">Butano (C₄H₁₀)</span>
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-secondary btn-sm" data-navigate="visor3d" onclick="window.selectAndGo('metano')">
+              Ver Metano en 3D &rarr;
+            </button>
+          </div>
+
+          <!-- Alquenos -->
+          <div class="class-card">
+            <div>
+              <div class="class-header">
+                <h3>Alquenos</h3>
+                <span class="class-formula-tag">CₙH₂ₙ</span>
+              </div>
+              <p>Hidrocarburos insaturados que poseen al menos un <strong>enlace doble carbono-carbono (C=C)</strong> con hibridación sp² y geometría plana de 120°. El enlace pi (π) les confiere una alta reactividad de adición.</p>
+              <div class="class-examples">
+                <strong>Ejemplos típicos:</strong>
+                <div class="examples-pills">
+                  <span class="pill-sm">Eteno (C₂H₄)</span>
+                  <span class="pill-sm">Propeno (C₃H₆)</span>
+                  <span class="pill-sm">But-1-eno (C₄H₈)</span>
+                  <span class="pill-sm">But-2-eno (C₄H₈)</span>
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-secondary btn-sm" data-navigate="visor3d" onclick="window.selectAndGo('eteno')">
+              Ver Eteno en 3D &rarr;
+            </button>
+          </div>
+
+          <!-- Alquinos -->
+          <div class="class-card">
+            <div>
+              <div class="class-header">
+                <h3>Alquinos</h3>
+                <span class="class-formula-tag">CₙH₂ₙ₋₂</span>
+              </div>
+              <p>Hidrocarburos insaturados caracterizados por al menos un <strong>enlace triple carbono-carbono (C≡C)</strong> con hibridación sp y geometría colineal de 180°. Almacenan una gran cantidad de energía química.</p>
+              <div class="class-examples">
+                <strong>Ejemplos típicos:</strong>
+                <div class="examples-pills">
+                  <span class="pill-sm">Etino (C₂H₂)</span>
+                  <span class="pill-sm">Propino (C₃H₄)</span>
+                  <span class="pill-sm">But-1-ino (C₄H₆)</span>
+                  <span class="pill-sm">But-2-ino (C₄H₆)</span>
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-secondary btn-sm" data-navigate="visor3d" onclick="window.selectAndGo('etino')">
+              Ver Etino en 3D &rarr;
+            </button>
+          </div>
+
+          <!-- Cíclicos -->
+          <div class="class-card">
+            <div>
+              <div class="class-header">
+                <h3>Cicloalcanos</h3>
+                <span class="class-formula-tag">CₙH₂ₙ</span>
+              </div>
+              <p>Hidrocarburos en los cuales la cadena de carbonos se cierra formando un <strong>anillo cerrado</strong>. Pueden presentar tensión de anillo (ciclopropano) o adoptar conformaciones libres de tensión (silla en ciclohexano).</p>
+              <div class="class-examples">
+                <strong>Ejemplos típicos:</strong>
+                <div class="examples-pills">
+                  <span class="pill-sm">Ciclopropano (C₃H₆)</span>
+                  <span class="pill-sm">Ciclohexano (C₆H₁₂)</span>
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-secondary btn-sm" data-navigate="visor3d" onclick="window.selectAndGo('ciclopropano')">
+              Ver Ciclopropano en 3D &rarr;
+            </button>
+          </div>
+
+          <!-- Aromáticos -->
+          <div class="class-card">
+            <div>
+              <div class="class-header">
+                <h3>Aromáticos (Arenos)</h3>
+                <span class="class-formula-tag">C₆H₆ (Benceno)</span>
+              </div>
+              <p>Sistemas cíclicos conjugados que poseen una estabilidad excepcional debida a la <strong>deslocalización de electrones pi (π) por resonancia</strong>. Cumplen la regla de aromaticidad de Hückel (4n + 2 electrones π).</p>
+              <div class="class-examples">
+                <strong>Ejemplos típicos:</strong>
+                <div class="examples-pills">
+                  <span class="pill-sm">Benceno (C₆H₆)</span>
+                  <span class="pill-sm">Tolueno</span>
+                  <span class="pill-sm">Naftaleno</span>
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-secondary btn-sm" data-navigate="visor3d" onclick="window.selectAndGo('benceno')">
+              Ver Benceno en 3D &rarr;
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 & 4. VISOR MOLECULAR 3D Y FÓRMULAS QUÍMICAS SINCRONIZADAS -->
+    <section class="app-section" id="section-visor3d">
+      <div class="viewer3d-layout">
+        
+        <!-- Panel Izquierdo: Visor 3D Three.js Real -->
+        <div class="viewer-main-panel">
+          <!-- Barra superior de selección -->
+          <div class="viewer-top-toolbar">
+            <div class="molecule-select-wrapper">
+              <label for="molecule-select-dropdown"><strong>Molécula:</strong></label>
+              <select id="molecule-select-dropdown" class="form-select">
+                <!-- Rellenado dinámicamente con las 18 moléculas requeridas -->
+              </select>
+              <button class="btn-icon" id="btn-prev-molecule" title="Molécula anterior">◀</button>
+              <button class="btn-icon" id="btn-next-molecule" title="Molécula siguiente">▶</button>
+            </div>
+
+            <!-- BOTÓN OBLIGATORIO DE LA ESPECIFICACIÓN: ACTUALIZAR MOLÉCULA -->
+            <button class="btn btn-primary btn-sm" id="btn-actualizar-molecula" title="Reconstruir modelo 3D y sincronizar vistas">
+              🔄 ACTUALIZAR MOLÉCULA
+            </button>
+          </div>
+
+          <!-- Contenedor del Canvas Three.js Real -->
+          <div class="threejs-viewport-container">
+            <div id="threejs-main-canvas"></div>
+
+            <!-- Controles flotantes sobre el visor -->
+            <div class="viewer-floating-controls">
+              <button class="float-control-btn active" id="btn-girar-molecula" title="Pausar o reanudar rotación automática">
+                🔄 GIRAR MOLÉCULA
+              </button>
+              <button class="float-control-btn" id="btn-restablecer-vista" title="Restablecer posición de la cámara">
+                🎯 RESTABLECER VISTA
+              </button>
+              <div class="mode-toggle-group">
+                <button class="float-control-btn active" id="btn-mode-ball-stick" title="Modelo de bolas y varillas">
+                  Bolas y Varillas
+                </button>
+                <button class="float-control-btn" id="btn-mode-space-filling" title="Modelo de espacio ocupado / van der Waals">
+                  Espacio Lleno (CPK)
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Leyenda inferior de elementos y controles -->
+          <div class="viewer-bottom-bar">
+            <div class="atom-legend">
+              <span><i class="legend-dot dot-c"></i> Carbono (C)</span>
+              <span><i class="legend-dot dot-h"></i> Hidrógeno (H)</span>
+              <span><i class="legend-dot dot-bond"></i> Enlaces C–C / C–H</span>
+            </div>
+            <div class="touch-hint">
+              <span>🖱️ Arrastra para girar • Rueda para zoom • Clic en átomo para inspeccionar</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel Derecho: Fórmulas Químicas Sincronizadas -->
+        <div class="viewer-details-panel">
+          
+          <!-- Encabezado con datos del compuesto -->
+          <div class="card-sync-header">
+            <div class="sync-top-row">
+              <h3 class="sync-iupac-name">Metano</h3>
+              <span class="badge badge-accent sync-category">Alcano</span>
+            </div>
+            <p class="sync-description text-muted">Descripción del hidrocarburo...</p>
+            <div class="sync-badges-row" id="molecule-composition-stats">
+              <!-- Rellenado dinámicamente -->
+            </div>
+          </div>
+
+          <!-- BOTONES PARA ALTERNAR REPRESENTACIONES -->
+          <div class="formula-toggle-bar">
+            <button class="formula-toggle-btn active" id="btn-show-desarrollada" data-formula-tab="desarrollada">
+              Fórmula Desarrollada
+            </button>
+            <button class="formula-toggle-btn" id="btn-show-semidesarrollada" data-formula-tab="semidesarrollada">
+              Semidesarrollada
+            </button>
+            <button class="formula-toggle-btn" id="btn-show-molecular" data-formula-tab="molecular">
+              Molecular
+            </button>
+            <button class="formula-toggle-btn" id="btn-show-nomenclatura" data-formula-tab="nomenclatura">
+              Nomenclatura
+            </button>
+          </div>
+
+          <!-- Contenido de la Ficha de Fórmulas -->
+          <div class="formula-content-box">
+            
+            <!-- Vista 1: Desarrollada completa con TODOS los enlaces C-H y C-C visibles -->
+            <div class="formula-view-card active-view" id="view-desarrollada">
+              <h5>Fórmula Desarrollada Completa</h5>
+              <p class="text-subtle" style="font-size: 0.8rem; margin-bottom: 0.5rem;">
+                Muestra de forma explícita cada enlace simple, doble o triple entre átomos de carbono e hidrógeno:
+              </p>
+              <div class="developed-svg-box" id="developed-formula-display">
+                <!-- SVG Vectorial inyectado dinámicamente -->
+              </div>
+            </div>
+
+            <!-- Vista 2: Fórmula Semidesarrollada -->
+            <div class="formula-view-card" id="view-semidesarrollada">
+              <h5>Fórmula Semidesarrollada</h5>
+              <p class="text-subtle" style="font-size: 0.8rem;">Agrupa los hidrógenos unidos a cada carbono, evidenciando la cadena carbonada:</p>
+              <div class="formula-big-display">
+                <span class="semi-formula-text sync-formula-semi">CH₄</span>
+                <span class="badge badge-info">Estructura condensada de cadena</span>
+              </div>
+            </div>
+
+            <!-- Vista 3: Fórmula Molecular Global -->
+            <div class="formula-view-card" id="view-molecular">
+              <h5>Fórmula Molecular (Global)</h5>
+              <p class="text-subtle" style="font-size: 0.8rem;">Indica la cantidad total neta de átomos de carbono e hidrógeno en la molécula:</p>
+              <div class="formula-big-display">
+                <span class="big-formula-text sync-formula-molecular">CH₄</span>
+                <span class="badge badge-accent">Composición estequiométrica elemental</span>
+              </div>
+            </div>
+
+            <!-- Vista 4: Nomenclatura y Geometría -->
+            <div class="formula-view-card" id="view-nomenclatura">
+              <h5>Detalles Químicos y Estructurales</h5>
+              <div class="info-grid-compact">
+                <div class="info-item">
+                  <span>Nombre IUPAC:</span>
+                  <strong class="sync-iupac-name">Metano</strong>
+                </div>
+                <div class="info-item">
+                  <span>Hibridación del C:</span>
+                  <strong class="sync-hybridization">sp³</strong>
+                </div>
+                <div class="info-item">
+                  <span>Geometría Molecular:</span>
+                  <strong class="sync-geometry">Tetraédrica</strong>
+                </div>
+                <div class="info-item">
+                  <span>Punto de Ebullición:</span>
+                  <strong class="sync-boiling-point">-161.5 °C</strong>
+                </div>
+              </div>
+              <div class="uses-brief-box" style="margin-top: 1rem; font-size: 0.82rem;">
+                <span class="text-subtle">Aplicaciones principales:</span>
+                <p class="sync-uses" style="margin-top: 0.25rem;">Combustibles y materias primas.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. CONSTRUCTOR INTERACTIVO DE MOLÉCULAS -->
+    <section class="app-section" id="section-constructor">
+      <div class="builder-layout">
+        <!-- Barra de herramientas del constructor -->
+        <div class="builder-header-bar">
+          <div>
+            <h3>🛠️ Constructor Interactivo de Moléculas</h3>
+            <p class="text-muted" style="font-size: 0.88rem;">Crea estructuras químicas orgánicas, verifica la tetravalencia del carbono y visualízalas en 2D y 3D simultáneamente.</p>
+          </div>
+
+          <!-- Selector de Plantillas Guiadas -->
+          <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+            <label for="builder-template-select" style="font-size: 0.82rem; font-weight: 600;">Plantillas didácticas:</label>
+            <select id="builder-template-select" class="form-select form-select-sm" style="max-width: 250px;">
+              <option value="">Seleccionar plantilla...</option>
+              <option value="metano">Metano (CH₄)</option>
+              <option value="eteno">Eteno (C₂H₄ con doble enlace)</option>
+              <option value="etino">Etino (C₂H₂ con triple enlace)</option>
+              <option value="clorometano">Clorometano (CH₃Cl - Halogenado con Cloro)</option>
+              <option value="cloroetano">Cloroetano (CH₃–CH₂–Cl)</option>
+              <option value="trimetilborano">Trimetilborano (B(CH₃)₃ - Organoborano con Boro)</option>
+              <option value="metanol">Metanol (CH₃OH - Alcohol)</option>
+              <option value="metilamina">Metilamina (CH₃NH₂ - Amina)</option>
+              <option value="propano_incompleto">Propano (¡Completa los hidrógenos!)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="builder-workspace-grid">
+          
+          <!-- Lienzo 2D Interactivo -->
+          <div class="builder-canvas-card">
+            <!-- Barra de Herramientas del Constructor -->
+            <div class="builder-toolbar">
+              <!-- Paleta de Elementos Químicos -->
+              <div class="tool-group element-palette-group">
+                <span class="tool-label">Elemento:</span>
+                <button class="tool-btn elem-btn active elem-c" data-elem="C" title="Carbono (Tetravalente, 4 enlaces)">C</button>
+                <button class="tool-btn elem-btn elem-h" data-elem="H" title="Hidrógeno (Monovalente, 1 enlace)">H</button>
+                <button class="tool-btn elem-btn elem-cl" data-elem="Cl" title="Cloro (Halógeno, 1 enlace)">Cl</button>
+                <button class="tool-btn elem-btn elem-b" data-elem="B" title="Boro (Trivalente, 3 enlaces)">B</button>
+                <button class="tool-btn elem-btn elem-o" data-elem="O" title="Oxígeno (Divalente, 2 enlaces)">O</button>
+                <button class="tool-btn elem-btn elem-n" data-elem="N" title="Nitrógeno (Trivalente, 3 enlaces)">N</button>
+                <button class="tool-btn elem-btn elem-br" data-elem="Br" title="Bromo (Halógeno, 1 enlace)">Br</button>
+                <select id="builder-more-elements" class="form-select form-select-sm" style="width: auto; padding: 0.25rem 0.5rem; font-size: 0.78rem;" title="Más elementos">
+                  <option value="">+ Más</option>
+                  <option value="F">F (Flúor)</option>
+                  <option value="P">P (Fósforo)</option>
+                  <option value="S">S (Azufre)</option>
+                </select>
+                <button class="btn btn-secondary btn-sm" id="btn-builder-add-current-atom" title="Añadir el átomo seleccionado al lienzo">
+                  ➕ Añadir Átomo
+                </button>
+              </div>
+
+              <!-- Modos de Interacción -->
+              <div class="tool-group">
+                <span class="tool-label">Modo:</span>
+                <button class="tool-btn mode-btn active" id="btn-mode-connect" data-mode="connect" title="Arrastra de un átomo a otro o haz clic en dos átomos para enlazarlos">
+                  🔗 Enlazar
+                </button>
+                <button class="tool-btn mode-btn" id="btn-mode-move" data-mode="move" title="Mover átomos libremente en el espacio">
+                  ✋ Mover
+                </button>
+                <button class="tool-btn mode-btn" id="btn-mode-delete" data-mode="delete" title="Clic en cualquier átomo o enlace para borrarlo">
+                  🗑️ Borrar
+                </button>
+              </div>
+
+              <!-- Tipo de Enlace -->
+              <div class="tool-group">
+                <span class="tool-label">Enlace:</span>
+                <button class="tool-btn bond-order-btn active" data-order="1" title="Enlace simple">Simple (—)</button>
+                <button class="tool-btn bond-order-btn" data-order="2" title="Enlace doble">Doble (=)</button>
+                <button class="tool-btn bond-order-btn" data-order="3" title="Enlace triple">Triple (≡)</button>
+              </div>
+
+              <!-- Botones de Acción -->
+              <div class="tool-group">
+                <button class="btn btn-secondary btn-sm" id="btn-builder-add-bond" title="Unir los átomos seleccionados">
+                  🔗 AÑADIR ENLACE
+                </button>
+                <button class="btn btn-outline btn-sm" id="btn-builder-undo" title="Deshacer última acción">
+                  ↩️ DESHACER
+                </button>
+                <button class="btn btn-outline btn-sm" id="btn-builder-clear" title="Borrar todo el lienzo">
+                  🧹 LIMPIAR CONSTRUCTOR
+                </button>
+              </div>
+            </div>
+
+            <!-- Canvas 2D interactivo con soporte táctil y ratón -->
+            <div class="canvas-container">
+              <canvas id="builder-canvas-2d" width="700" height="480"></canvas>
+              <span class="canvas-help-hint">
+                ✨ <strong>Enlazar:</strong> Arrastra de un átomo a otro, o haz clic en 2 átomos para unirlos • Haz clic en un enlace para cambiar su orden (simple/doble/triple)
+              </span>
+            </div>
+          </div>
+
+          <!-- Barra Lateral: Previsualización 3D y Validación de Valencia -->
+          <div class="builder-sidebar">
+            
+            <!-- Previsualización 3D en Vivo de la Molécula Creada -->
+            <div class="preview-3d-card">
+              <div class="card-head">
+                <span>Visor 3D en Tiempo Real</span>
+              </div>
+              <div class="preview-viewport" id="builder-preview-3d"></div>
+            </div>
+
+            <!-- Análisis de Valencia, Octeto y Fórmulas -->
+            <div class="builder-stats-card">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <h5 style="margin: 0;">Análisis Estructural</h5>
+                <div style="display: flex; gap: 0.4rem;">
+                  <!-- Botones obligatorios de la especificación -->
+                  <button class="btn btn-primary btn-sm" id="btn-builder-actualizar">
+                    🔄 ACTUALIZAR MOLÉCULA
+                  </button>
+                  <button class="btn btn-secondary btn-sm" id="btn-builder-view-formulas">
+                    📋 VER FÓRMULAS
+                  </button>
+                </div>
+              </div>
+
+              <!-- Píldoras de estado dinámico -->
+              <div class="builder-stat-pills" id="builder-live-stats">
+                <!-- Rellenado dinámicamente -->
+              </div>
+
+              <!-- Mensajes pedagógicos sobre valencias incompletas o errores -->
+              <div class="builder-feedback-box info" id="builder-feedback-message">
+                <p>Comienza agregando átomos de carbono e hidrógeno o selecciona una plantilla didáctica para practicar.</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. NOMENCLATURA IUPAC PASO A PASO -->
+    <section class="app-section" id="section-nomenclatura">
+      <div id="nomenclatura-content-area">
+        <!-- Renderizado dinámicamente por NomenclaturaModule -->
+      </div>
+    </section>
+
+    <!-- 7. PROPIEDADES FÍSICAS Y QUÍMICAS -->
+    <section class="app-section" id="section-propiedades">
+      <div id="propiedades-content-area">
+        <!-- Renderizado dinámicamente por PropiedadesModule -->
+      </div>
+    </section>
+
+    <!-- 8. EL PETRÓLEO Y SUS DERIVADOS (SIN ÍNDICE DE OCTANO) -->
+    <section class="app-section" id="section-petroleo">
+      <div id="petroleo-content-area">
+        <!-- Renderizado dinámicamente por PetroleoModule -->
+      </div>
+    </section>
+
+    <!-- 9. EVALUACIÓN AUTOMÁTICA (100 PUNTOS) -->
+    <section class="app-section" id="section-evaluacion">
+      <div id="evaluacion-content-area">
+        <!-- Renderizado dinámicamente por EvaluacionModule -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================
+       MODALES Y VENTANAS FLOTANTES
+       ========================================== -->
+
+  <!-- Modal: Información Detallada del Átomo Seleccionado en 3D -->
+  <div class="app-modal" id="atom-info-modal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h5 style="margin: 0;">🔬 Inspección Atómica</h5>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          <div><span class="text-muted">Elemento químico:</span> <strong id="modal-atom-element">Carbono</strong></div>
+          <div><span class="text-muted">Identificador:</span> <strong id="modal-atom-name">C1</strong></div>
+          <div><span class="text-muted">Función en la molécula:</span> <span id="modal-atom-role">Carbono central sp³</span></div>
+          <div><span class="text-muted">Coordenadas espaciales:</span> <code id="modal-atom-coords">X: 0.00, Y: 0.00, Z: 0.00 Å</code></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Fórmulas Calculadas del Constructor -->
+  <div class="app-modal" id="builder-formulas-modal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h5 style="margin: 0;">📋 Fórmulas de la Estructura Construida</h5>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div style="display: flex; flex-direction: column; gap: 0.85rem;">
+          <div><span class="text-muted">Fórmula molecular:</span> <code style="font-size: 1.2rem; color: var(--accent-cyan);" id="modal-bf-formula">CH₄</code></div>
+          <div><span class="text-muted">Fórmula semidesarrollada:</span> <strong id="modal-bf-semi">CH₄</strong></div>
+          <div><span class="text-muted">Composición atómica:</span></div>
+          <div id="modal-bf-counts" style="display: flex; gap: 0.5rem; flex-wrap: wrap;"></div>
+          <div id="modal-bf-status"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contenedor global de Notificaciones Toast -->
+  <div id="toast-container"></div>
+
+  <!-- ==========================================
+       SCRIPTS DE LA APLICACIÓN
+       ========================================== -->
+  <!-- Three.js y OrbitControls (local con fallback de seguridad) -->
+  <script src="vendor/three.min.js"></script>
+  <script>
+    if (typeof THREE === "undefined") {
+      document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"><\/script>');
+    }
+  </script>
+  <script src="vendor/OrbitControls.js"></script>
+  <script>
+    if (typeof THREE !== "undefined" && typeof THREE.OrbitControls === "undefined") {
+      document.write('<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"><\/script>');
+    }
+  </script>
+
+  <!-- Módulos de la Aplicación -->
+  <script src="js/data.js"></script>
+  <script src="js/viewer3d.js"></script>
+  <script src="js/builder.js"></script>
+  <script src="js/nomenclatura.js"></script>
+  <script src="js/propiedades.js"></script>
+  <script src="js/petroleo.js"></script>
+  <script src="js/evaluacion.js"></script>
+  <script src="js/app.js"></script>
+
+  <!-- Función auxiliar para botones de enlace directo -->
+  <script>
+    window.selectAndGo = function(moleculeId) {
+      const selectElem = document.getElementById("molecule-select-dropdown");
+      if (selectElem) {
+        selectElem.value = moleculeId;
+        selectElem.dispatchEvent(new Event("change"));
+      }
+    };
+  </script>
+
+</body>
+</html>
